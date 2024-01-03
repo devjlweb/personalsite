@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Auxin Essential Elements\n"
 "Report-Msgid-Bugs-To: http://averta.net/phlox/wordpress-theme/\n"
-"POT-Creation-Date: 2023-12-10 09:14:47+00:00\n"
+"POT-Creation-Date: 2023-12-20 06:44:54+00:00\n"
 "PO-Revision-Date: 2016-11-09 12:50+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1957,7 +1957,7 @@ msgid "Importing Media"
 msgstr ""
 
 #: includes/classes/class-auxin-demo-importer.php:294
-#: includes/classes/class-auxin-demo-importer.php:1336
+#: includes/classes/class-auxin-demo-importer.php:1346
 msgid "Importing Users"
 msgstr ""
 
@@ -1988,11 +1988,11 @@ msgstr ""
 msgid "Importing Sliders"
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:1413
+#: includes/classes/class-auxin-demo-importer.php:1423
 msgid "Preparing Site ..."
 msgstr ""
 
-#: includes/classes/class-auxin-demo-importer.php:1457
+#: includes/classes/class-auxin-demo-importer.php:1467
 msgid "All steps are successful"
 msgstr ""
 

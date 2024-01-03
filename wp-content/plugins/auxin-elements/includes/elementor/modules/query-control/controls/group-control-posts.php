@@ -242,7 +242,7 @@ class Group_Control_Posts extends Group_Control_Base {
 		if ( ! empty( $settings['exclude'] ) ) {
 			if ( in_array( 'current_post', $settings['exclude'], true ) ) {
 				if ( ElementorUtils::is_ajax() && ! empty( $_REQUEST['post_id'] ) ) {
-					$post__not_in[] = $_REQUEST['post_id'];
+					$post__not_in[] = auxin_sanitize_input( $_REQUEST['post_id'] );
 				} elseif ( is_singular() ) {
 					$post__not_in[] = get_queried_object_id();
 				}

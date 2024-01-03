@@ -224,7 +224,7 @@ function auxin_get_tabs_widget_callback( $atts, $shortcode_content = null ){
 
         if ( !empty ( $tab['label'] ) ) {
             $tabs_markup         .= '<li><a href="#">' . esc_html ( $tab['label'] ) . '</a></li>';
-            $tabs_content_markup .= '<li>' . $tab['content'] . '</li>';
+            $tabs_content_markup .= '<li>' . auxin_kses( $tab['content'] ) . '</li>';
             $tabs_count++;
         }
 

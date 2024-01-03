@@ -428,7 +428,7 @@ function auxin_widget_image_callback( $atts, $shortcode_content = null ){
     $image_primary_full = '';
     $image_secondary    = '';
     $lightbox_attrs     = '';
-    $image_classes      = "aux-attachment aux-featured-image aux-attachment-id-$attach_id";
+    $image_classes      = "aux-attachment aux-featured-image aux-attachment-id-" . esc_attr( $attach_id );
     $frame_classes      = '';
 
     if( empty( $size ) ){
@@ -518,7 +518,7 @@ function auxin_widget_image_callback( $atts, $shortcode_content = null ){
     }
 
     // add alignment class on main element
-    $result['widget_header'] = str_replace( $base_class, $base_class.' aux-'.$align, $result['widget_header'] );
+    $result['widget_header'] = str_replace( $base_class, $base_class.' aux-'. esc_attr( $align ), $result['widget_header'] );
 
     ob_start();
 

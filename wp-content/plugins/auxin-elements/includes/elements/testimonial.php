@@ -257,7 +257,7 @@ function auxin_widget_testimonial_callback( $atts, $shortcode_content = null ){
                 <h5 class="col-subtitle"><?php echo auxin_kses( $subtitle ); ?></h5>
                 <?php } if ( 'none' !== $rating ) { ?>
                 <div class="aux-rating-box aux-star-rating">
-                    <span class="aux-star-rating-avg" style="width: <?php echo ( $rating / 5 ) * 100 ;  ?>%"> </span>
+                    <span class="aux-star-rating-avg" style="width: <?php echo ( absint( $rating ) / 5 ) * 100 ;  ?>%"> </span>
                 </div>
                 <?php } ?>
             </div>

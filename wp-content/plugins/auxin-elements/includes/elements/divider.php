@@ -250,20 +250,20 @@ function auxin_widget_divider_callback( $atts, $shortcode_content = null ){
 
     if( ! empty( $margin_top ) ) {
         $margin_top = (int) $margin_top;
-        $inline_styles .= "margin-top: $margin_top" . "px;";
+        $inline_styles .= "margin-top: " . esc_attr( $margin_top ) . "px;";
     }
 
     if( ! empty( $divider_margin_bottom ) ) {
         $divider_margin_bottom = (int) $divider_margin_bottom;
-        $inline_styles .= "margin-bottom:$divider_margin_bottom" . "px;";
+        $inline_styles .= "margin-bottom:" . esc_attr( $divider_margin_bottom ) . "px;";
     }
 
     if( ! empty( $divider_color ) ) {
-        $inline_styles .= "border-color:$divider_color" . ";";
+        $inline_styles .= "border-color:" . esc_attr( $divider_color ) . ";";
     }
 
     if( ! empty( $inline_styles ) ) {
-        $inline_styles = ' style="' . $inline_styles . '" ';
+        $inline_styles = ' style="' . esc_attr( $inline_styles ) . '" ';
     }
 
     return '<hr class="'. esc_attr( $class_names ) . '"' . $inline_styles . ' >';

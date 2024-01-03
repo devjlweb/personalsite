@@ -159,7 +159,7 @@ function auxin_widget_accordion_callback( $atts, $shortcode_content = null ){
 
     $extra_classes .= $type == 'true' ? ' aux-type-toggle' : ' aux-type-accordion';
 
-    $output .= '<div class="widget-inner ' .$extra_classes . '" data-toggle="' . $type . '">';
+    $output .= '<div class="widget-inner ' . esc_attr( $extra_classes ) . '" data-toggle="' . esc_attr( $type ) . '">';
 
     // widget custom output -----------------------
     if ( is_array( $accordion ) || is_object( $accordion ) ) {
@@ -176,6 +176,8 @@ function auxin_widget_accordion_callback( $atts, $shortcode_content = null ){
                 'role'          => 'tab',
                 'aria-controls' => 'aux-toggle-content-' . $id_number,
             );
+
+            $title_tag = strtolower( $title_tag ) == 'script' ? 'h6' : $title_tag;
             $output .= sprintf( '<%1$s %2$s>%3$s</%1$s>',
                 $title_tag,
                 auxin_make_html_attributes( $header_attrs ),

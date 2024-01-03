@@ -306,14 +306,14 @@ function auxin_widget_button_callback( $atts = array(), $shortcode_content = nul
     
     // --------------------------------------------
     $btn_css_classes = array( 'aux-button' );
-    $btn_css_classes[] = 'aux-' . $size;    // size
-    $btn_css_classes[] = 'aux-' . $color_name;   // appearance
+    $btn_css_classes[] = 'aux-' . esc_attr( $size );    // size
+    $btn_css_classes[] = 'aux-' . esc_attr( $color_name );   // appearance
 
     if( $border ){
-        $btn_css_classes[] = 'aux-' . $border;  // border form
+        $btn_css_classes[] = 'aux-' . esc_attr( $border );  // border form
     }
     if( $style ){
-        $btn_css_classes[] = 'aux-' . $style;   // appearance
+        $btn_css_classes[] = 'aux-' . esc_attr( $style );   // appearance
     }
     if( auxin_is_true( $uppercase ) ){
         $btn_css_classes[] = 'aux-uppercase';   // text form
@@ -322,7 +322,7 @@ function auxin_widget_button_callback( $atts = array(), $shortcode_content = nul
         $btn_css_classes[] = 'aux-dark-text';   // text color
     }
     if( $icon_align !== "default" ){
-        $btn_css_classes[] = 'aux-icon-' . $icon_align;   // icon align
+        $btn_css_classes[] = 'aux-icon-' . esc_attr( $icon_align );   // icon align
     }
 
     // add extra attributes to button element if defined
@@ -351,7 +351,7 @@ function auxin_widget_button_callback( $atts = array(), $shortcode_content = nul
             if ( 'custom' === $property ) {
                 $extra_styles .= $value;
             } else {
-                $extra_styles  .=  $property . ':' . $value . ';';
+                $extra_styles  .=  $property . ':' . esc_attr( $value ) . ';';
             }
         }
 
@@ -360,7 +360,7 @@ function auxin_widget_button_callback( $atts = array(), $shortcode_content = nul
     }
 
     if( ! empty( $extra_classes ) ) {
-        $btn_css_classes[] =  $extra_classes;
+        $btn_css_classes[] =  esc_attr( $extra_classes );
     }
 
     if ( auxin_is_true( $open_video_in_lightbox ) ) {
@@ -372,7 +372,7 @@ function auxin_widget_button_callback( $atts = array(), $shortcode_content = nul
     $button_class_attr = auxin_make_html_class_attribute( $btn_css_classes );
 
     $label = empty( $label ) ? $shortcode_content : $label;
-    $label = empty( $label ) ? __( "Button", 'auxin-elements' ) : $label;
+    $label = empty( $label ) ? __( "Button", 'auxin-elements' ) : auxin_kses( $label );
 
     $btn_content  = '<span class="aux-overlay"></span>';
     $btn_label    = '<span class="aux-text">'. auxin_do_cleanup_shortcode( $label ) .'</span>';
@@ -387,7 +387,7 @@ function auxin_widget_button_callback( $atts = array(), $shortcode_content = nul
 
     $btn_tag  = empty( $link ) ? 'button' : 'a';
     $btn_rel  = auxin_is_true ( $nofollow ) ? ' rel="nofollow"' : '';
-    $btn_href = empty( $link ) ? '' : ' href="'. $link .'" target="'. esc_attr( $target ) .'" ' . $btn_rel;
+    $btn_href = empty( $link ) ? '' : ' href="'. esc_url( $link ) .'" target="'. esc_attr( $target ) .'" ' . $btn_rel;
 
     $output   = '';
 

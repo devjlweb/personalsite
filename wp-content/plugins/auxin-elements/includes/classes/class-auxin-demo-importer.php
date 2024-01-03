@@ -1142,6 +1142,16 @@ class Auxin_Demo_Importer {
                     }
                 }
 
+                // Change mailChimp shortcode old id
+                preg_match_all( '/mc4wp_form id=\\\"(\d*)/', $elementor_data, $mailchimp_forms, PREG_SET_ORDER );
+                if ( ! empty( $mailchimp_forms ) ) {
+                    foreach ( $mailchimp_forms as $key => $form ) {
+                        $new_form         = str_replace( $form[1], $this->get_attachment_id( 'auxin_import_post', $form[1] ), $form[0] );
+
+                        $elementor_data = str_replace( $form[0], $new_form, $elementor_data );
+                    }
+                }
+
                 // Change template's id in flexible recent posts element
                 preg_match_all( '/post_column":"\d*/', $elementor_data, $templates, PREG_SET_ORDER );
                 if ( ! empty( $templates ) ) {

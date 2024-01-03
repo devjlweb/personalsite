@@ -6,8 +6,8 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: phlox, gallery, elementor, auxin, averta, auxin-elements, framework, widget, fullwidth, masonry, timeline, parallax
 Requires PHP: 5.4
 Requires at least: 4.6
-Tested up to: 6.4.1
-Stable tag: 2.15.2
+Tested up to: 6.4.2
+Stable tag: 2.15.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -153,6 +153,9 @@ Bugs can be reported in our [support forums](https://docs.phlox.pro).
 
 
 == Changelog ==
+
+= Version 2.15.4 / (20.12.2023) =
+- [Improvement]: Security improvements applied.
 
 = Version 2.15.0 / (23.11.2023) =
 - [Improvement]: Improvements applied for Elementor.

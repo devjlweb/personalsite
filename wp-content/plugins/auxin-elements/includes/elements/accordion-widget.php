@@ -162,8 +162,8 @@ function auxin_accordion_tab_shortcode( $atts, $content = null ) {
         ), $atts )
     );
     $output .= '<section>';
-    $output .= '<h6 class="toggle-header">' . $label . '</h6>';
-    $output .= '<div class="toggle-content"><p>' . $content . '</p></div>';
+    $output .= '<h6 class="toggle-header">' . auxin_kses( $label ) . '</h6>';
+    $output .= '<div class="toggle-content"><p>' . auxin_kses( $content ) . '</p></div>';
     $output .= '</section>';
 
     return $output;

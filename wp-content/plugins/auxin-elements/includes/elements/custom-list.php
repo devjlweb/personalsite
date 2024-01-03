@@ -267,11 +267,11 @@ function auxin_widget_list_callback( $atts, $shortcode_content = null ){
 
             if( $item_unique_id = ! empty( $list_item['_id'] ) ? $list_item['_id'] : '' ){
                 $item_classes[] = 'aux-list-item-has-icon';
-                $item_classes[] = 'aux-icon-list-item-'. $item_unique_id;
-                $item_classes[] = 'elementor-repeater-item-'. $item_unique_id;
+                $item_classes[] = 'aux-icon-list-item-'. esc_attr(  $item_unique_id );
+                $item_classes[] = 'elementor-repeater-item-'. esc_attr( $item_unique_id );
             }
 
-            $item_text_tag =  ! empty( $list_item['text_tag'] ) ? $list_item['text_tag'] : 'span';
+            $item_text_tag =  ! empty( $list_item['text_tag'] ) && $list_item['text_tag'] != 'script' ? $list_item['text_tag'] : 'span';
             $output .= '<li '. auxin_make_html_attributes( array( 'class' => $item_classes ) ) .'>';
 
             // Generate link for list item
@@ -291,19 +291,19 @@ function auxin_widget_list_callback( $atts, $shortcode_content = null ){
 
             // a fix to prevent unwanted default value 'check-1' which is set in elementor
             if( ! empty( $list_item['icon'] ) && 'check-1' != $list_item['icon'] ){
-                $output .= '<span '. auxin_make_html_attributes( array( 'class' => array( 'aux-icon-list-icon', $list_item['icon'] ) ) ) .'></span>';
+                $output .= '<span '. auxin_make_html_attributes( array( 'class' => array( 'aux-icon-list-icon', esc_attr( $list_item['icon'] ) ) ) ) .'></span>';
             }
             if( ! empty( $list_item['text_primary'] ) ){
-                $output .= "<$item_text_tag ". auxin_make_html_attributes( array( 'class' => array( 'aux-icon-list-text' ) ) ) .'>' . $list_item['text_primary'] . "</$item_text_tag>";
+                $output .= "<$item_text_tag ". auxin_make_html_attributes( array( 'class' => array( 'aux-icon-list-text' ) ) ) .'>' . auxin_kses( $list_item['text_primary'] ) . "</$item_text_tag>";
             }
             if( auxin_is_true( $connector ) ){
                 $output .= '<span '. auxin_make_html_attributes( array( 'class' => array( 'aux-list-connector' ) ) ) .'></span>';
             }
             if( ! empty( $list_item['text_secondary'] ) ){
-                $output .= '<span '. auxin_make_html_attributes( array( 'class' => array( 'aux-icon-list-text2' ) ) ) .'>' . $list_item['text_secondary'] . '</span>';
+                $output .= '<span '. auxin_make_html_attributes( array( 'class' => array( 'aux-icon-list-text2' ) ) ) .'>' . auxin_kses( $list_item['text_secondary'] ) . '</span>';
             }
             if( ! empty( $list_item['description'] ) ){
-                $output .= '<p '. auxin_make_html_attributes( array( 'class' => array( 'aux-icon-list-description' ) ) ) .'>' . $list_item['description'] . '</p>';
+                $output .= '<p '. auxin_make_html_attributes( array( 'class' => array( 'aux-icon-list-description' ) ) ) .'>' . auxin_kses( $list_item['description'] ) . '</p>';
             }
 
             if( ! empty( $list_item['link']['url'] ) ){

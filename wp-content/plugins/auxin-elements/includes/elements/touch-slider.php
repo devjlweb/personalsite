@@ -253,7 +253,7 @@ function auxin_touch_slider_callback( $atts, $shortcode_content = null ){
                 <section class="aux-info-container">
                 <?php if( $add_title ) { ?>
                     <div class="aux-slide-title">
-                        <h3><?php echo auxin_get_trimmed_string( get_the_title( $attachment_id ), 70, '...'); ?></h3>
+                        <h3><?php echo auxin_kses( auxin_get_trimmed_string( get_the_title( $attachment_id ), 70, '...') ); ?></h3>
                     </div>
                 <?php } if ( $add_caption ) { ?>
                     <div class="aux-slide-info">

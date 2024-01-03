@@ -99,7 +99,7 @@ function auxin_shortcode_timeline( $atts, $content = null ) {
            <?php
 
            if( ! empty($title) )
-                echo get_widget_title( $title ); ?>
+                echo auxin_kses( get_widget_title( $title ) ); ?>
 
 
            <div class="widget-inner">
@@ -316,7 +316,7 @@ function auxin_shortcode_timeline( $atts, $content = null ) {
 
                             <figcaption>
                                 <div class="entry-header">
-                                    <h4 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                                    <h4 class="entry-title"><a href="<?php the_permalink(); ?>"><?php echo auxin_kses( get_the_title() ); ?></a></h4>
                                     <div class="entry-format">
                                         <a href="<?php the_permalink(); ?>" class="post-format format-<?php echo get_post_format(); ?>"> </a>
                                         <?php if($date_type == "big") { ?>
@@ -339,7 +339,7 @@ function auxin_shortcode_timeline( $atts, $content = null ) {
                                     <?php if($post_format == "quote") {
                                         echo wp_kses_post( $the_attach );
                                     } elseif($excerpt_len > 0) { ?>
-                                    <p><?php auxin_the_trimmed_string(get_the_excerpt(),$excerpt_len); ?></p>
+                                    <p><?php auxin_the_trimmed_string( auxin_kses( get_the_excerpt() ),$excerpt_len); ?></p>
                                     <?php } ?>
                                 </div>
                             </figcaption>
